@@ -1,4 +1,4 @@
-let inputNum = 3241;
+let inputNum = 3;
 
 const singles = [
   "zero",
@@ -25,3 +25,9 @@ const teens = [
   "eighteen",
   "nineteen",
 ];
+
+const doubles = []
+
+if (inputNum.length = 1){
+    console.log(singles[inputNum])
+}
