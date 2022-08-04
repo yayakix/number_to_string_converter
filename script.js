@@ -1,4 +1,4 @@
-let inputNum = 3;
+let inputNum = "9";
 
 const singles = [
   "zero",
@@ -28,6 +28,9 @@ const teens = [
 
 const doubles = []
 
-if (inputNum.length = 1){
-    console.log(singles[inputNum])
+if (inputNum.length == 1){
+    console.log(singles[Number(inputNum)])
+}
+else if (inputNum.length == 2){
+console.log(teens[Number(inputNum[1])])
 }
