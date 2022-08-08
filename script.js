@@ -1,5 +1,4 @@
-let inputNum = "20";
-
+let inputNum = "1003";
 // decimals, maximum,
 
 const singles = [
@@ -77,9 +76,32 @@ const thousands = [" thousand "]
       return doubles[Number(inputNum[0])] + " " + singles[Number(inputNum[1])];
     }
   }
+  function findThousand(inputNum){
+    // 1111
+    if (inputNum[1] != 0){
+      console.log(inputNum[1]);
+      return (
+        singles[Number(inputNum[0])] +
+        " thousand " +
+        findHundred(inputNum.slice(1))
+      );
+    }
+    // 1011
+    else if (inputNum[1] == 0 && inputNum[2] != 0){
+      return singles[Number(inputNum[0])] +
+          " thousand " + findDoubles(inputNum.slice(2))
+    }
+    // 1001
+    else if (inputNum[1] == 0  && inputNum[2] == 0){
+      return (
+        singles[Number(inputNum[0])] + " thousand " + singles[Number(inputNum.slice(3))]
+      );
+    }
+  }
 
 // check for single digits
 function stringtoNum(inputNum){
+
 if (inputNum.length == 1) {
   return (singles[Number(inputNum)]);
 }
@@ -93,24 +115,7 @@ else if (inputNum.length == 3) {
 } 
  // check thousands place
 else if (inputNum.length == 4) {
-  let hundreths =  singles[Number(inputNum[1])] 
-          hundreds[0] 
-  let tens = ""
-
-      if (inputNum[1] == 0) {
-        hundreths = "";
-      }
-      if (inputNum[2] == 0) {
-        hundreths = "";
-
-      }else{
-      console.log(
-        singles[Number(inputNum[0])] +
-          " thousand " + hundreths +
-         
-          doubles[Number(inputNum[2])] +
-          teens[Number(inputNum[1])]
-      )}
+ return findThousand(inputNum)
 }
 }
 
